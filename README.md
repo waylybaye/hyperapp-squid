@@ -1,0 +1,2 @@
+# hyperapp-squid
+squid proxy
