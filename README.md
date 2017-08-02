@@ -1,10 +1,6 @@
 # hyperapp-squid
 
 
-squid proxy
-========================
-
-
 :warning: :warning: :warning: If you want to customize squid.conf, PLEASE ADD TO the ENDING of the file.
 
 
