@@ -2,8 +2,7 @@
 
 
 :warning: :warning: :warning: If you want to customize squid.conf, PLEASE ADD TO the ENDING of the file.
-
-=============================================================
+==========================================================================================================
 
 A simple (and fragile) Dockerfile for launching an authenticated squid proxy.
 
