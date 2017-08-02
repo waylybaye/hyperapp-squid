@@ -7,9 +7,16 @@ RUN mkdir /usr/etc
 COPY squid.conf /etc/squid/squid.conf
 
 ENV PORT 3128
+ENV USERNAME hyperapp
+ENV PASSWORD hyperapp
 
-EXPOSE 3128
+EXPOSE $PORT
+
 VOLUME /var/log/squid
+VOLUME /var/cache/squid
+VOLUME /var/spool/squid
 
-ADD init.sh /init.sh
-CMD ["/init.sh"]
+ADD docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["squid", "-N", "-d1"]

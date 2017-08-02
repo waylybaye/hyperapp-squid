@@ -24,15 +24,25 @@ if [ -n "$WORDS" ];then
   sed -i "55c$WORDS" /etc/squid/squid.conf
 fi
 
-
-mkdir /var/spool/squid
-
-htpasswd -bc /usr/etc/passwd "${SQUID_USERNAME}" "${SQUID_PASSWORD}"
+htpasswd -bc /usr/etc/passwd "${USERNAME}" "${PASSWORD}"
 CHOWN=$(/usr/bin/which chown)
 SQUID=$(/usr/bin/which squid)
 "$CHOWN" -R squid:squid /var/cache/squid
 "$CHOWN" -R squid:squid /var/log/squid
-#squid -z
+
 #sleep 15
-squid -N -d1
 #exec tail -F /var/log/squid/cache.log
+
+if [ ! -f  /var/spool/squid ]; then 
+  echo "initializing spool ..."
+  mkdir /var/spool/squid
+fi
+
+if [ ! -f  /var/cache/squid ]; then 
+  echo "initializing cache ..."
+  squid -zN
+fi
+
+echo "starting ... $@"
+exec "$@"
+
