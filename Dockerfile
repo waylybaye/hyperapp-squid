@@ -3,7 +3,7 @@ MAINTAINER HyperApp <HyperAppCloud@gmail.com>
 MAINTAINER DylanWu <NextDoorWu@gmail.com>
 
 RUN apk update \
-    && apk add squid=3.5.23-r0 \
+    && apk add squid>3.5.23-r0 \
     && apk add curl \
     && apk add apache2-utils \
     && rm -rf /var/cache/apk/*
