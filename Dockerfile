@@ -1,5 +1,6 @@
 FROM alpine:latest
-MAINTAINER DylanWu
+MAINTAINER HyperApp <HyperAppCloud@gmail.com>
+MAINTAINER DylanWu <NextDoorWu@gmail.com>
 
 RUN apk update \
     && apk add squid=3.5.23-r0 \
